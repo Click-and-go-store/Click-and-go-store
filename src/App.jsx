@@ -1,11 +1,12 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { Heart, ShoppingCart, X, Plus, Minus, Search, Trash2, CreditCard, Truck, ShieldCheck, BadgePercent, Star, ArrowRight, RefreshCw, AlertTriangle } from "lucide-react";
 
-const ORANGE = "#F2701C";
-const ORANGE_DEEP = "#D9560B";
-const INK = "#1A1712";
-const CREAM = "#F4F0E7";
-const PAPER = "#FFFDF9";
+const ORANGE = "#FF6A1A";
+const ORANGE_DEEP = "#E8380C";
+const ACCENT = "#FF2D78";
+const INK = "#151210";
+const CREAM = "#F6F1E6";
+const PAPER = "#FFFFFF";
 const WHATSAPP_NUMBER = "573222518383"; // reemplaza por el número real de la tienda
 
 // 👉 Link de tu Google Sheet vía opensheet.elk.sh (funciona en el navegador, sin bloqueos de Google).
@@ -224,13 +225,13 @@ export default function App() {
       {/* Hero */}
       <section style={{
         position: "relative", overflow: "hidden",
-        background: `linear-gradient(120deg, ${INK} 0%, #2a251d 55%, ${ORANGE_DEEP} 130%)`,
+        background: `linear-gradient(120deg, ${INK} 0%, ${ORANGE_DEEP} 65%, ${ACCENT} 135%)`,
         color: CREAM, padding: "56px 28px 64px", display: "flex",
         alignItems: "center", gap: 40, flexWrap: "wrap"
       }}>
         <div style={{ flex: "1 1 380px", minWidth: 280 }}>
           <div style={{
-            display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(242,112,28,0.18)",
+            display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,106,26,0.20)",
             border: `1px solid ${ORANGE}`, color: ORANGE, borderRadius: 999, padding: "5px 14px",
             fontSize: 12, fontWeight: 700, marginBottom: 18
           }}>
@@ -274,7 +275,7 @@ export default function App() {
         <div style={{ flex: "1 1 280px", minWidth: 240, display: "flex", justifyContent: "center" }}>
           <div style={{
             width: 230, height: 230, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(242,112,28,0.35), transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,106,26,0.40), transparent 70%)",
             display: "flex", alignItems: "center", justifyContent: "center"
           }}>
             <CartLogo size={140} color={CREAM} />
@@ -347,7 +348,7 @@ export default function App() {
               </button>
               {p.oldPrice && (
                 <span style={{
-                  position: "absolute", top: 10, left: 10, background: ORANGE, color: "#fff",
+                  position: "absolute", top: 10, left: 10, background: ACCENT, color: "#fff",
                   fontSize: 10.5, fontWeight: 800, padding: "4px 9px", borderRadius: 999
                 }}>-{Math.round((1 - p.price / p.oldPrice) * 100)}%</span>
               )}
@@ -586,4 +587,3 @@ function EmptyState({ text }) {
     </div>
   );
 }
-
