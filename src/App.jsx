@@ -332,8 +332,8 @@ export default function App() {
             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 14px 28px rgba(26,23,18,0.10)"; }}
             onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
           >
-            <div style={{ position: "relative", height: 170, overflow: "hidden", background: "#eee" }}>
-              <img src={p.img} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "relative", height: 170, overflow: "hidden", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <img src={p.img} alt={p.name} style={{ width: "78%", height: "78%", objectFit: "contain" }} />
               <button
                 onClick={() => toggleWishlist(p)}
                 aria-label="Agregar a deseos"
@@ -453,7 +453,7 @@ export default function App() {
                 ) : (
                   cart.map(item => (
                     <div key={item.id} style={{ display: "flex", gap: 10, padding: "14px 0", borderBottom: "1px solid #e6e0d3" }}>
-                      <img src={item.img} alt={item.name} style={{ width: 62, height: 62, objectFit: "cover", borderRadius: 10, border: "1px solid #e6e0d3" }} />
+                      <div style={{ width: 62, height: 62, borderRadius: 10, border: "1px solid #e6e0d3", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexShrink: 0 }}><img src={item.img} alt={item.name} style={{ width: "80%", height: "80%", objectFit: "contain" }} /></div>
                       <div style={{ flex: 1 }}>
                         <div style={{ fontWeight: 700, fontSize: 13 }}>{item.name}</div>
                         <div style={{ fontSize: 12, color: "#8a8478" }}>{money(item.price)}</div>
@@ -477,7 +477,7 @@ export default function App() {
                 ) : (
                   wishlist.map(item => (
                     <div key={item.id} style={{ display: "flex", gap: 10, padding: "14px 0", borderBottom: "1px solid #e6e0d3" }}>
-                      <img src={item.img} alt={item.name} style={{ width: 62, height: 62, objectFit: "cover", borderRadius: 10, border: "1px solid #e6e0d3" }} />
+                      <div style={{ width: 62, height: 62, borderRadius: 10, border: "1px solid #e6e0d3", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", flexShrink: 0 }}><img src={item.img} alt={item.name} style={{ width: "80%", height: "80%", objectFit: "contain" }} /></div>
                       <div style={{ flex: 1 }}>
                         <div style={{ fontWeight: 700, fontSize: 13 }}>{item.name}</div>
                         <div style={{ fontSize: 12, color: "#8a8478" }}>{money(item.price)}</div>
@@ -560,7 +560,7 @@ function SheetStatusBadge({ status, lastSync, onRefresh }) {
   const map = {
     demo: { color: "#8a8478", label: "Catálogo de ejemplo (conecta tu Google Sheet)", icon: <AlertTriangle size={12} /> },
     loading: { color: "#8a8478", label: "Sincronizando con Google Sheets…", icon: <RefreshCw size={12} className="spin" /> },
-    live: { color: "#3d8b5f", label: lastSync ? `Actualizado desde Sheets · ${lastSync.toLocaleTimeString("es-CO")}` : "Actualizado desde Sheets", icon: <RefreshCw size={12} /> },
+    live: { color: "#3d8b5f", label: lastSync ? `Actualizado · ${lastSync.toLocaleDateString("es-CO")} ${lastSync.toLocaleTimeString("es-CO")}` : "Actualizado", icon: <RefreshCw size={12} /> },
     error: { color: "#b23b1e", label: "No se pudo leer la hoja, mostrando catálogo de ejemplo", icon: <AlertTriangle size={12} /> },
   };
   const s = map[status] || map.demo;
